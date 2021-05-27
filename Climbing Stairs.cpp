@@ -29,7 +29,6 @@ Constraints:
 1 <= n <= 45
 
 it is more of like fibonacci series where you have to print n'th fibonacci number.
-
 happy coding!!!
 */
 
@@ -46,9 +45,22 @@ int climbStairs(int n) {
             y = x+y;
             x=temp;
         }
+ 
         return (x+y);
+}
+//or can use this function
+int climbStairs1(int n) {
+    int step[n+1];
+    step[0] = 1;
+    step[1] = 1;
+    for(int i=2;i<=n;i++) {
+        step[i] = step[i-1] + step[i-2];
     }
+ 
+    return step[n];
+}
 
+//Driver Function
 int main()
 {
     int n;
